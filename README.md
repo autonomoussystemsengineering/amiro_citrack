@@ -1,4 +1,4 @@
-# amiro_citrack
+s# amiro_citrack
 Example repository to run the AMiRo in the CITrack with a NetBoot machine in the loop.
 It setups the simple package `amiro_in_the_loop`, so that you sense and control an AMiRo with a PC in the network.
 Tracking and localization is provided by CITrack, which topics are provided by multimaster_fkie if you run `roslaunch amiro_in_the_loop master_sync.launch`.
@@ -17,8 +17,10 @@ export LD_LIBRARY_PATH=$F/lib:$F/lib64:$F/usr/lib:${LD_LIBRARY_PATH}
 export LIBRARY_PATH=$F/lib:$F/lib64:$F/usr/lib:${LIBRARY_PATH}
 export CMAKE_PREFIX_PATH=$F:${CMAKE_PREFIX_PATH} 
 ```
-2. Copy `amiro_in_the_loop/config/rsb.config` to the systems folder `~/.config`
+2. Build the packages (e.g. `catkin build`)
 
-3. Run a spread daemon on `alice.techfak.uni-bielefeld.de` which provides communication between your PC and the AMiRo
+3. Copy `amiro_in_the_loop/config/rsb.config` to the systems folder `~/.config`
 
-4. Run e.g. `roslaunch amiro_in_the_loop start_amiro_in_the_loop.launch` to receive CITrack localization and control the AMiRo Nr. 7 via ROS twist messages. 
+4. Run a spread daemon on `alice.techfak.uni-bielefeld.de` which provides communication between your PC and the AMiRo
+
+5. Run e.g. `roslaunch amiro_in_the_loop start_amiro_in_the_loop.launch` to receive CITrack localization and control the AMiRo Nr. 7 via ROS twist messages. 
