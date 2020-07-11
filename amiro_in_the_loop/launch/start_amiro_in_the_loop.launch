@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+	<param name="use_sim_time" value="false"/>
+
+       <!-- Sync with server -->
+       <include file="$(find amiro_in_the_loop)/launch/master_sync.launch" />
+
+	<!-- Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find amiro_in_the_loop)/config/config.rviz" output="screen" respawn="true"/>
+
+
+	<!-- Bridges -->
+	<node name="AMiRo7" pkg="ros_to_rsb_bridge" type="ros_geometry_msgs_twist_to_rst_value_array" output="screen" cwd="ROS_HOME">
+		<param name="ros_listener_topic" value="/amiro7/cmd_vel"/>
+		<param name="rsb_publish_scope" value="/amiro7/motor/5"/>
+		<param name="duration" value="1000000"/>
+	</node>
+
+
+	<!-- Your script sends to /amiro7/cmd_vel -->
+	<!-- Cmd: rostopic pub -r 10 /amiro7/cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}' -->
+
+</launch>

@@ -1,0 +1,6 @@
+[submodule "amiro_bridges"]
+	path = amiro_bridges
+	url = https://github.com/autonomoussystemsengineering/amiro_bridges.git
+[submodule "amiro_msgs"]
+	path = amiro_msgs
+	url = https://github.com/autonomoussystemsengineering/amiro_msgs.git
